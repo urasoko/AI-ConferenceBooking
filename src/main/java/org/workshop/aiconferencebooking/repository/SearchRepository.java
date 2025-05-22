@@ -18,8 +18,4 @@ public class SearchRepository {
         this.dataSource = dataSource;
     }
 
-    public List<Talk> searchTalk(String input) {
-
-        return null;
-    }
 }
