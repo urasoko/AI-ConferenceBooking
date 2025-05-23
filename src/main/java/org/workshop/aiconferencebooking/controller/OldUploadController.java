@@ -31,8 +31,8 @@ public class OldUploadController {
         var user = principal.getName();
         var person = personService.findByUsername(user);
 
-        person.setProfilePic(name);
-        personService.savePerson(person);
+        person.setProfilePicture(name);
+        personService.save(person);
         return "person/upload";
     }
 }

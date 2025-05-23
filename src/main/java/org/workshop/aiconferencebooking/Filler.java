@@ -1,8 +1,6 @@
 package org.workshop.aiconferencebooking;
 
 import net.datafaker.Faker;
-import net.datafaker.providers.movie.Movie;
-import org.springframework.boot.autoconfigure.web.ServerProperties;
 import org.springframework.stereotype.Component;
 import org.workshop.aiconferencebooking.model.Event;
 import org.workshop.aiconferencebooking.model.Person;
@@ -67,7 +65,7 @@ public class Filler {
         );
         newPerson.setPassword(password);
         newPerson.setRole(role);
-        return personService.savePerson(newPerson);
+        return personService.save(newPerson);
     }
 
     public Event createEvent(String name, String description, Date startDate, Date endDate) {

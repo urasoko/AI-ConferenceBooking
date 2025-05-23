@@ -25,7 +25,7 @@ public class PersonService {
         return personRepository.findAll();
     }
 
-    public Person savePerson(Person person) {
+    public Person save(Person person) {
         if (person.getPassword() != null && !person.getPassword().isEmpty()) {
             person.setEncryptedPassword(passwordEncoder.encode(person.getPassword()));
         }
@@ -70,6 +70,6 @@ public class PersonService {
 
         person.setRole(Role.ROLE_ATTENDEE);
 
-        return savePerson(person);
+        return save(person);
     }
 }

@@ -1,6 +1,6 @@
 auth:
   user:
-      name: micah
+      name: loz
       pwd: 123123
   admin:
     pwd: password

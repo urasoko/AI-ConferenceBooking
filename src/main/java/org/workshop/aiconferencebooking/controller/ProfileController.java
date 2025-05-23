@@ -46,7 +46,7 @@ public class ProfileController {
 
         boolean isAdd = person.getId() == null;
 
-        personService.savePerson(person);
+        personService.save(person);
 
         if (isAdd) {
             redirectAttributes.addFlashAttribute("message", "Your profile has been created successfully.");
