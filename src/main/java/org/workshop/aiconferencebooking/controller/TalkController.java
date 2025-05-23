@@ -8,8 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.workshop.aiconferencebooking.model.Talk;
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.workshop.aiconferencebooking.repository.TalkRepository;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
