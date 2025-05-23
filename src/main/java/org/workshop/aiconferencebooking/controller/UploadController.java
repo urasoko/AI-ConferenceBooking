@@ -34,25 +34,6 @@ public class UploadController {
 
     @PostMapping("/uploadimage")
     public String uploadImage(Model model, @RequestParam("image") MultipartFile file,Principal principal) throws IOException {
-        //get file name
-        String fileName = file.getOriginalFilename();
-        //save file to the UPLOAD_DIRECTORY
-        File filePath = new File(UPLOAD_DIRECTORY + "/" + fileName);
-
-        //get file bytes and write to dir
-        byte[] bytes = file.getBytes();
-        Files.write(Paths.get(filePath.getAbsolutePath()), bytes);
-        //get person
-        Person person = getPerson(model, principal);
-        //send file name to person
-        if (person != null) {
-            person.setProfilePicture(fileName);
-            personService.save(person);
-            model.addAttribute("message", "File uploaded successfully");
-        } else {
-            model.addAttribute("message", "ERROR");
-        }
-
 
         return "person/upload";
     }
