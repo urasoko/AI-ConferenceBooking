@@ -147,6 +147,7 @@ Replace the param with XSS:
 
 ```
 http://localhost:8081/talks?username=<script>alert(1)</script>
+http://localhost:8081/talks?username=%3Cscript%3Ealert(document.cookie)%3C/script%3E
 ```
 
 13 - Update the code to provide links to the talks
