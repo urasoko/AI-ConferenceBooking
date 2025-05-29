@@ -10,7 +10,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.security.Principal;
 
-public class OldUploadController {
+public class DownloadController {
 
     private PersonService personService;
 
@@ -18,21 +18,25 @@ public class OldUploadController {
 
 
     public String uploadImage(Model model, MultipartFile file, Principal principal) throws IOException {
-        var name = file.getOriginalFilename().replace(" ", "_");
-        var fileNameAndPath = Paths.get(UPLOAD_DIRECTORY + File.separator + name);
-        Files.write(fileNameAndPath, file.getBytes());
-        model.addAttribute("msg", "Uploaded images: " + name);
-
-        if (principal == null) {
-            model.addAttribute("message", "ERROR");
-            return "person/upload";
-        }
-
+        //get file name
+        var name = file.getOriginalFilename();
+        //get path
+        var path = Paths.get(UPLOAD_DIRECTORY + File.separator + name);
+        //write file to path
+        Files.write(path, file.getBytes());
+        //get person
         var user = principal.getName();
         var person = personService.findByUsername(user);
-
+        //set image path
         person.setProfilePicture(name);
+        //save person
         personService.save(person);
+        //add person to model
+        model.addAttribute("person", person);
+        //return view
+        model.addAttribute("msg", "Image uploaded successfully");
+
+
         return "person/upload";
     }
 }
