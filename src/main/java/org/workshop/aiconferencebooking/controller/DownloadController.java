@@ -3,6 +3,7 @@ package org.workshop.aiconferencebooking.controller;
 import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 import org.workshop.aiconferencebooking.service.PersonService;
+import org.springframework.stereotype.Controller;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,6 +11,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.security.Principal;
 
+@Controller
 public class DownloadController {
 
     private PersonService personService;
