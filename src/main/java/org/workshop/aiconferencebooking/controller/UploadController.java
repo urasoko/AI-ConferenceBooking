@@ -32,10 +32,7 @@ public class UploadController {
         return "person/upload";
     }
 
-    @PostMapping("/uploadimage")
-    public String uploadImage(Model model, @RequestParam("image") MultipartFile file, Principal principal) throws IOException {
-        return "person/upload";
-    }
+    
 
     public Person getPerson(Model model, Principal principal) {
         if (principal == null) {
