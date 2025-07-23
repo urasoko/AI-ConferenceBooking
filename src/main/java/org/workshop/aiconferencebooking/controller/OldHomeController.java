@@ -27,7 +27,7 @@ public class OldHomeController {
         this.searchRepository = searchRepository;
     }
 
-    @GetMapping({"/", "/index", "/home"})
+    @GetMapping({"/x", "/indexx", "/homex"})
     public String homePage(Model model) {
         List<Event> events = eventRepository.findAll();
         if (!events.isEmpty()) {
@@ -37,7 +37,7 @@ public class OldHomeController {
         return "index";
     }
 
-    @PostMapping("/")
+    @PostMapping("/x")
     public String searchTalks(Model model, @RequestParam String input) {
         List<Event> events = eventRepository.findAll();
         if (!events.isEmpty()) {
