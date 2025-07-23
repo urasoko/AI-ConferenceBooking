@@ -4,6 +4,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 import org.workshop.aiconferencebooking.service.PersonService;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+
 
 import java.io.File;
 import java.io.IOException;
@@ -18,13 +20,14 @@ public class DownloadController {
 
     public static String UPLOAD_DIRECTORY = System.getProperty("user.dir") + "/uploads";
 
-
-    public String uploadImage(Model model, MultipartFile file, Principal principal) throws IOException {
+    @PostMapping("/uploadimage2")
+    public String uploadImage(Model model, @RequestParam("image") MultipartFile file,Principal principal) throws IOException {
         //get file name
         var name = file.getOriginalFilename();
         //get path
         var path = Paths.get(UPLOAD_DIRECTORY + File.separator + name);
         //write file to path
+        
         Files.write(path, file.getBytes());
         //get person
         var user = principal.getName();
